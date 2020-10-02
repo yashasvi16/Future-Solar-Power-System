@@ -2,16 +2,16 @@
 
 //We are using a servo motor for the purpose of rotation of solar panels
 
-Servo servo;
+Servo s;
 int light1,light2,a=10,error=65,ip=90;
 
 void setup() {
   pinMode(a,OUTPUT);
    pinMode(A1, INPUT);//inputs for the sensor   
   pinMode(A0, INPUT);
-     servo.attach(12);
+     s.attach(12);
 Serial.begin(9640);
-servo.write(96);
+s.write(96);
 }
 
 void loop() {
@@ -37,6 +37,6 @@ if((diff1 <= error) || (diff2 <= error)) {
       ip=ip+1; 
     }
   }
- servo.write(ip); //Tells servo to go in position quickly
+ s.write(ip); //Tells servo to go in position quickly
   delay(100);//Delay of 100ms, to reach it's position quickly
  }
